@@ -12,10 +12,12 @@ import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/avatar.png'
 import config from '@/site-config'
 
-const languages = ['Html', 'JavaScript', 'CSS', 'Shell']
+const languages = ['Python', 'Shell','R']
 const frontend = ['TypeScript', 'Vite', 'Webpack', 'Astro']
-const backend = ['Vercel', 'Waline']
-
+const games = ['Overwatch', 'Destiny 2', '']
+const personality = ['Introvert', 'Curious', 'Sleepy']
+const Tools = ['Zotero', 'Obsidian', 'Typora', '']
+const research = ['Single-cell Sequencing', 'Epigenomics', 'Deep Learning']
 const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
@@ -25,53 +27,34 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
   <main class='flex w-full flex-col items-center'>
     <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
       <Image
-        src={avatar}
+        src='https://avatars.githubusercontent.com/u/87755349?v=4'
         alt='profile'
         class='h-28 w-auto rounded-full border p-1'
         loading='eager'
+        inferSize={true}
       />
 
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold'>{config.author}</h1>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label title='China'>
+          <Label title='Guangzhou, China'>
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
-          <Label
-            title='Source code'
-            as='a'
-            href='https://github.com/cworld1/astro-theme-pure'
-            target='_blank'
-          >
+          <Label title='Github' as='a' href='https://github.com/relpace' target='_blank'>
             <Icon name='github' class='size-5' slot='icon' />
           </Label>
         </div>
       </div>
 
-      {/* Get template */}
-      <a
-        href='https://github.com/cworld1/astro-theme-pure'
-        target='_blank'
-        class='flex flex-row items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
-      >
-        <span class='relative flex items-center justify-center'>
-          <span
-            class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
-          ></span>
-          <span class='size-2 rounded-full bg-green-400'></span>
-        </span>
-        <p class='font-medium text-muted-foreground'>Get Template</p>
-      </a>
+
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='About'>
-        <p class='text-muted-foreground'>Developer / Designer</p>
-        <p class='text-muted-foreground'>
-          Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione
-          indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel,
-          at eum oratio possit voluptatum.
-        </p>
+        <p class='text-muted-foreground'>Student / Developer / Bioinformatician </p>
+        <p class='text-muted-foreground'>Undergraduate student major in Biotechnology
+        <br>Interested in Biology, Medicine, Programming and AI
+        <br>Currently learning bioinformatics and deep learning.</p>
         <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
       </Section>
       {
@@ -121,10 +104,10 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <Section title='Education'>
         <Card
           as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
-          date='August 2021 - July 2025'
-          href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+          heading='Southern Medical University'
+          subheading='Biotechnology'
+          date='September 2023 - Present'
+          href='https://www.smu.edu.cn'
         >
           {
             /* <ul class='ms-4 list-disc text-muted-foreground'>
@@ -138,6 +121,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         </Card>
       </Section>
 
+      {/* 
       <Section title='Website List'>
         <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
@@ -165,8 +149,10 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             imagePath='/src/assets/projects/wen-qiao-g_w8I64FiO0-unsplash.jpg'
           />
         </div>
-      </Section>
+      </Section> 
+      */}
 
+      {/*
       <Section title='Certifications'>
         <Card
           as='a'
@@ -176,11 +162,11 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         />
       </Section>
-
-      <Section title='Skills'>
-        <SkillLayout title='Languages' skills={languages} />
-        <SkillLayout title='Frontend' skills={frontend} />
-        <SkillLayout title='Backend' skills={backend} />
+      */}
+      <Section title='Tags'>
+        <SkillLayout title='Coding' skills={languages} />
+        <SkillLayout title='Research' skills={research} />
+        <SkillLayout title='Personality' skills={personality} />
       </Section>
     </div>
     <Quote class='mt-12' />
